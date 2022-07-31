@@ -1,0 +1,51 @@
+@font-face{
+    font-family: STARWARS;
+    src: url(../fuente/starwars.zip) format('truetype');
+}
+
+body{
+    background-image: url(../images/81725-star-wars-4k.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-text-stroke: 0.2px yellow;
+    font-family: STARWARS;
+    
+    }
+
+h1{
+    font-size: 50px;
+}
+
+p{
+    font-size: 30px;
+    color: white;
+}
+
+.boton{
+   
+    width: 200px;
+    height: 60px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: black;
+    margin-left: 4%;
+    border: 1px solid goldenrod;
+    cursor: hand;
+    cursor: pointer;
+
+}
+
+div{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    color: goldenrod;
+    padding: 5px;
+}
+
+img{
+    width: 150px;
+    height: 100px;
+    border: 3px solid black;
+}
