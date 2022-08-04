@@ -13,7 +13,7 @@ console.log("PERSONAJES DISPONIBLES", catalogoPersonajes.personajes)
 mostrarMenu()
 
 function mostrarMenu() {
-    const menu = ["Crear Personaje","Listar Personaje", "Buscar Personaje", "Actualizar Personaje","Ordenar","Borrar", "Salir"]
+    const menu = ["Crear Personaje","Listar Personajes", "Buscar Personaje", "Actualizar Personaje","Ordenar","Borrar", "Salir"]
 
     menu.forEach((datos)=>{
         mostrarDatos(datos);
@@ -39,7 +39,7 @@ function mostrarMenu() {
             case "Crear Personaje": // Crear Personaje
                 crearPersonaje()
                 break;
-            case "Listar Personaje": // Listado de personajes
+            case "Listar Personajes": // Listado de personajes
                 listarPersonajes()
                 break;
             case "Buscar Personaje": // Busqueda de personaje
@@ -70,9 +70,10 @@ function crearPersonaje() {
     let nombre = prompt("Ingrese un nombre")
     let edad = Number(prompt("Ingrese una edad"))
     let arma = prompt("Ingrese un arma")
+    let mision = prompt("Ingrese su misión")
     let img = prompt("Ingrese una imagen")
 
-    let personaje = new Personajes(catalogoPersonajes.darCantidad() + 1, nombre, edad, arma, img);
+    let personaje = new Personajes(catalogoPersonajes.darCantidad() + 1, nombre, edad, arma, mision, img);
     catalogoPersonajes.crearPersonaje(personaje);
 
     console.log("CATALOGO PERSONAJES", catalogoPersonajes);
@@ -116,9 +117,10 @@ function actualizarPersonaje() {
     let nombre = prompt("Ingrese un nombre")
     let edad = Number(prompt("Ingrese una edad"))
     let arma = prompt("Ingrese un arma")
+    let mision = prompt ("Ingrese una misión")
     let img = prompt ("Ingrese una imagen")
 
-    catalogoPersonajes.actualizarPersonaje(nombreABuscar, nombre, edad, arma, img);
+    catalogoPersonajes.actualizarPersonaje(nombreABuscar, nombre, edad, arma, mision, img);
     listarPersonajes();
 }
 
