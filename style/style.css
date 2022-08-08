@@ -1,7 +1,4 @@
-@font-face{
-    font-family: STARWARS;
-    src: url(../fuente/starwars.zip) format('truetype');
-}
+
 
 body{
     background-image: url(../images/81725-star-wars-4k.jpg);

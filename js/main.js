@@ -135,5 +135,21 @@ function borrarPersonaje(){
 
 function ordenarPersonajes()
 {
+    listarPersonajes()
     catalogoPersonajes.ordenarPersonajes();
+}
+
+programarBoton()
+
+function programarBoton(){
+    const btnBuscar=document.getElementById("btnSearch");
+
+    btnBuscar.addEventListener("click",()=>{
+        const inputPersonaje=document.getElementById("buscar").value;
+        filtrarPersonajes(inputPersonaje);
+    })
+    function filtrarPersonajes (inputPersonaje){
+        const filtrados = listarPersonajes.filtros((personaje)=>personaje.nombre.indexOf(inputPersonaje)!==-1);
+        mostrarPersonaje(filtrados)
+    }
 }
