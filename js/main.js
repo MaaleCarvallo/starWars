@@ -149,7 +149,7 @@ function programarBoton(){
         filtrarPersonajes(inputPersonaje);
     })
     function filtrarPersonajes (inputPersonaje){
-        const filtrados = listarPersonajes.filtros((personaje)=>personaje.nombre.indexOf(inputPersonaje)!==-1);
-        mostrarPersonaje(filtrados)
+        const filtrados = listarPersonajes.filter((personaje)=>personaje.nombre.includes(inputPersonaje)!==-1);
+        listarPersonaje(filtrados)
     }
 }
