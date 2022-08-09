@@ -2,6 +2,7 @@
 
 body{
     background-image: url(../images/81725-star-wars-4k.jpg);
+    background-color: black;
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-text-stroke: 0.2px yellow;
@@ -20,13 +21,14 @@ p{
 
 .boton{
    
-    width: 200px;
-    height: 60px;
+    width: 250px;
+    height: 70px;
     border-radius: 7px;
     font-family: inherit;
     font-size: 20px;
     text-transform: uppercase;
     background-color: black;
+    color: goldenrod;
     margin-left: 4%;
     border: 1px solid goldenrod;
     cursor: hand;

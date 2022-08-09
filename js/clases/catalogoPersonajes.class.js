@@ -24,43 +24,41 @@ class CatalogoPersonajes {
         )
 
         if (esta) {
-            alert("LO ENCONTRE")
+            
 
             let filtrado = this.personajes.filter((personajes) =>
                     personajes.nombre.includes(nombreABuscar)
             )
 
-            console.table("ESTO ENCONTRÉ", filtrado);
+            return filtrado
         }
         else {
-            alert("NO LO ENCONTRÉ")
+             return false
         }
 
 
     }
-    actualizarPersonaje(nombreABuscar, nombre, edad, arma, mision, img)
-    {
-        let personajeEncontrado = this.personajes.find((personajes) =>
-            personajes.nombre.includes(nombreABuscar)
+    buscarId(idABuscar) {
+        return this.personajes.find((personajes) =>
+            personajes.id==idABuscar
         )
-        if(personajeEncontrado)
-        {
-            personajeEncontrado.nombre=nombre;
-            personajeEncontrado.edad=edad;
-            personajeEncontrado.arma=arma;
-            personajeEncontrado.mision=mision
-            personajeEncontrado.img=img;
-            console.log("Personaje actualizado", this.personajes);
-        }
-        else{
-            alert("NO PUEDO MODIFICAR")
-        }    
     }
 
-    borrarPersonaje(nombreABuscar)
+    actualizarPersonaje(idABuscar, nombre, edad, arma, mision, img)
     {
-        let personajeEncontrado = this.personajes.find((personajes) =>
-        personajes.nombre.includes(nombreABuscar))
+        let personajeEncontrado = this.buscarId(idABuscar)
+        
+        personajeEncontrado.nombre=nombre;
+        personajeEncontrado.edad=edad;
+        personajeEncontrado.arma=arma;
+        personajeEncontrado.mision=mision
+        personajeEncontrado.img=img;
+     }
+
+
+    borrarPersonaje(idABuscar)
+    {
+        let personajeEncontrado = this.buscarId(idABuscar)
 
         if(personajeEncontrado)
         {
@@ -80,7 +78,6 @@ class CatalogoPersonajes {
             return 1;
         
         })
-        console.log("ORDENADO", this.personajes)
     }
 
 }
