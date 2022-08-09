@@ -10,7 +10,13 @@ class CatalogoPersonajes {
     darCantidad() {
         return this.personajes.length;
     }
-
+    obtenerMayorId(){
+        let resultado = 0;
+        this.personajes.forEach((personaje)=>{
+            resultado=personaje.id>resultado ? personaje.id : resultado
+        })
+    return resultado
+    }
 
     listarPersonajes() {
         

@@ -100,13 +100,14 @@ function crearPersonaje() {
         let misiones = document.getElementById("misiones")
         let imagen = document.getElementById("imagen")
         
-        let personaje = new Personajes(catalogoPersonajes.darCantidad() + 1, nombrePersonaje.value, edadPersonaje.value, arma.value, misiones.value, imagen.value);
+        let personaje = new Personajes(catalogoPersonajes.obtenerMayorId() + 1, nombrePersonaje.value, edadPersonaje.value, arma.value, misiones.value, imagen.value);
         catalogoPersonajes.crearPersonaje(personaje)
     
         listarPersonajes(catalogoPersonajes.personajes);
     })
 
 }
+
 
 function listarPersonajes(persojanesMostrar) {
     
