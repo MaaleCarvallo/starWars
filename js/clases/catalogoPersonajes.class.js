@@ -10,7 +10,9 @@ class CatalogoPersonajes {
     darCantidad() {
         return this.personajes.length;
     }
-    obtenerMayorId(){
+    
+    
+    obtenerMayorId(){  
         let resultado = 0;
         this.personajes.forEach((personaje)=>{
             resultado=personaje.id>resultado ? personaje.id : resultado
@@ -41,9 +43,8 @@ class CatalogoPersonajes {
         else {
              return false
         }
-
-
     }
+
     buscarId(idABuscar) {
         return this.personajes.find((personajes) =>
             personajes.id==idABuscar
@@ -73,17 +74,8 @@ class CatalogoPersonajes {
         }
     }
 
-    ordenarPersonajes()
-    {
-        this.personajes.sort((personajeA, personajeB)=>
-        {
-            if(personajeA.nombre<personajeB.nombre)
-            {
-                return -1
-            }
-            return 1;
-        
-        })
-    }
-
+ordenarPersonajes(){
+    this.personajes.sort((personajeA,personajeB)=> (personajeA.nombre>personajeB.nombre) ? 1 : -1)
+    
+}
 }
