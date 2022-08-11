@@ -202,6 +202,12 @@ function borrarPersonaje(idABorrar){
 
     catalogoPersonajes.borrarPersonaje(idABorrar)
     listarPersonajes(catalogoPersonajes.personajes);
+    Swal.fire({
+        icon: 'Borrado',
+        title: 'Oops...',
+        text: 'Se ha borrado a su personaje con éxito',
+        //footer: '<a href="">Why do I have this issue?</a>'
+      })
 
 }
 
@@ -230,6 +236,14 @@ btnBuscar.addEventListener("click",()=>{
 })
 
 function guardarPersonajes(){
+     
     localStorage.setItem("personajes", JSON.stringify(catalogoPersonajes.personajes))
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Se ha guardado a su personaje con éxito',
+        showConfirmButton: false,
+        timer: 1500
+      })
 }
 
