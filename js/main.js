@@ -1,5 +1,4 @@
-let personajes
-
+let personajes = []
 
 if(localStorage.getItem("personajes"))
 {
@@ -8,8 +7,8 @@ if(localStorage.getItem("personajes"))
 else {
     personajes = [
         { id: 1, nombre: "Luke", edad: 23, arma: "Lightsaber",mision:"Fuga de la carcel republicana", img:"https://media.contentapi.ea.com/content/dam/star-wars-battlefront-2/images/2019/08/swbf2-refresh-hero-large-heroes-page-luke-skywalker-16x9-xl.jpg.adapt.crop1x1.320w.jpg"},
-        { id: 3, nombre: "Leia", edad: 23, arma: "Pistola blaster", mision:"Misión diplomática a Alderaan", img:"https://static.wikia.nocookie.net/esstarwars/images/9/9b/Princessleiaheadwithgun.jpg/revision/latest?cb=20150117214124" },
-        { id: 4, nombre: "Han Solo", edad: 21, arma: "BlasTech DL-44", mision:"Misión a Tatooine (Guerra Civil Galáctica)", img:"https://static.wikia.nocookie.net/esstarwars/images/f/fe/Han_Solo%27s_blaster.jpg/revision/latest?cb=20151030182246" },
+        { id: 3, nombre: "Leia", edad: 23, arma: "Pistola blaster", mision:"Misión diplomática a Alderaan", img:"https://s.yimg.com/uu/api/res/1.2/aui734vjXoSx6ZRJ.iRGUg--~B/Zmk9ZmlsbDtoPTYyNzt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/uu/api/res/1.2/NgTNKSX1SAg7c3kq7m8kGw--~B/aD02MTA7dz02NTc7YXBwaWQ9eXRhY2h5b24-/https://o.aolcdn.com/hss/storage/midas/97730e0d673c4011d975b89cc00c097c/204746682/carrie-fisher-princesa-leia.jpg.cf.jpg"},
+        { id: 4, nombre: "Han Solo", edad: 21, arma: "BlasTech DL-44", mision:"Misión a Tatooine (Guerra Civil Galáctica)", img:"https://imagenes.elpais.com/resizer/tfk0il9EC4hs5QBJDUNvy1a2xmQ=/1960x1470/arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/VLY33S3OFNJZT2E4FNVOK65PAE.jpg"},
         { id: 5, nombre: "Yoda", edad: 900, arma: "Lightsaber",mision:"Escaramuza en Mapuzo", img:"https://www.show.news/__export/1588641921429/sites/debate/img/2020/05/04/yoda_crop1588641235430.jpg_423682103.jpg" },
         { id: 6, nombre: "Chewbacca", edad: 200, arma: "Ballesta",mision:"Misión a Coruscant", img:"https://media.ambito.com/p/3f6496dc469474b0d9bca8286009b056/adjuntos/239/imagenes/039/830/0039830422/chewbaccajpg.jpg" },
         { id: 7, nombre: "Darth Vader", edad: 45, arma: "Lightsaber",mision:"Ejecutar la estrella de la muerte", img:"https://www.nacionflix.com/__export/1652817679292/sites/debate/img/2022/05/17/star-wars-darth-vader.jpg_1103262657.jpg" },
@@ -20,7 +19,7 @@ else {
     mostrarMenu() 
 
 function mostrarMenu() {
-    const menu = ["Crear Personaje","Listar Personajes","Ordenar", ,"Guardar Personajes"]
+    const menu = ["Crear Personaje","Listar Personajes","Ordenar","Guardar Personajes", "Listar naves"]
 
     menu.forEach((datos)=>{
         mostrarDatos(datos);
@@ -55,8 +54,8 @@ function mostrarMenu() {
             case "Guardar Personajes":
                 guardarPersonajes()
                 break;
-            default:
-                alert("Opción Inválida")
+            case"Listar naves":
+                listarNaves()
                 break;
         }
     }
@@ -239,11 +238,38 @@ function guardarPersonajes(){
      
     localStorage.setItem("personajes", JSON.stringify(catalogoPersonajes.personajes))
     Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Se ha guardado a su personaje con éxito',
-        showConfirmButton: false,
-        timer: 1500
+        title: 'Gracias por guardar a tu personaje.',
+        html:'<img class="ewok" src="./images/giphy.gif">',
+        color: '#716add',
+        background: '#fff url(/images/trees.png)',
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("./images/giphy.gif")
+          left top
+          no-repeat
+        `
       })
 }
 
+function listarNaves(){
+    const nodoPrincipal=document.getElementById("mainContent")
+    nodoPrincipal.innerHTML="";
+    nodoPrincipal.setAttribute("style", "display:flex")
+    fetch ("https://swapi.dev/api/starships/")
+        .then(response=> response.json())
+        .then(starships=> {
+            console.log(starships)
+            starships.results.forEach(starship => {
+        
+                const divStarship=document.createElement("div")
+                divStarship.innerHTML=`<h3>Nombre:${starship.name}</h3>
+                                        <div>Modelo:${starship.model}</div>
+                                        <div>Costo:${starship.cost_in_credits}</div>
+                            
+                                        `
+        
+                nodoPrincipal.appendChild(divStarship);
+            
+            })
+        })
+}
