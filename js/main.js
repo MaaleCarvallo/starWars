@@ -123,7 +123,7 @@ function listarPersonajes(persojanesMostrar) {
                                 <div>${personaje.edad}</div>
                                 <div>${personaje.arma}</div>
                                 <div>${personaje.mision}</div>
-                                <div><button>Seleccionar</button></div>
+                                <div><button>Iniciar trivia</button></div>
                                 <div><button id="actualizar-${personaje.id}" value="${personaje.id}">Actualizar</button></div>
                                 <div><button id="borrar-${personaje.id}" value="${personaje.id}">Borrar</button></div>
 
