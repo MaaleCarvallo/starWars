@@ -208,7 +208,7 @@ const trivia = [
         "respuestas": ["Ataque a la estrella de la muerte", "El escape de una capsula desde una nave rebelde", "La creación de Yoda", "El vuelo de un X-Wing pilotado por Luke Skywalker"],
     },
     {
-        "pregunta": "¿Quién es el directos de: El retorno del Jedi?",
+        "pregunta": "¿Quién es el director de: El retorno del Jedi?",
         "img": "./images/pregunta39.jpg",
         "respuestas": ["Richard Marquand", "JJ Abrams", "George Lucas", "Irvin Kershner"],
     },
