@@ -245,7 +245,7 @@ const trivia = [
     {
         "pregunta": "¿Cuál es el Ewok más famoso?",
         "img": "./images/pregunta45.jpg",
-        "respuestas": ["Wicket", "Herder", "Farmer","Ninguno de los anteriores"],
+        "respuestas": ["Wicket", "Herder", "Farmer","Ninguna es correcta"],
     },
     {
         "pregunta": "¿Cómo se llama Wicket, la joven exploradora Ewok?",
@@ -274,6 +274,7 @@ const trivia = [
     },
 ]
 
+//RESPUESTAS ALEATORIAS
 const printHTMLQuestion = (i) => {
     const p = trivia [i];
     let r = p.respuestas;
@@ -282,6 +283,7 @@ const printHTMLQuestion = (i) => {
     r = r.sort((a,b) => Math.floor(Math.random() * 3) -1);
 
     
+//CREACION DE BOTONES EN EL DOM
     const htmlRespuestasArray =  r.map(currentA => `<p class="respuesta"><button class="respuestaBoton"> X </button><span>${currentA}</span></p>`)
     const htmlRespuestas = htmlRespuestasArray.join ('  ')
 
@@ -297,6 +299,8 @@ const printHTMLQuestion = (i) => {
             evaluateAnswer(valorRespuestaBoton, boton);
         })
     })
+
+//TIMER
 
     tiempo=15;
     document.querySelector('.tiempo').innerHTML = tiempo;
@@ -319,6 +323,8 @@ const printHTMLQuestion = (i) => {
     },1000)
 }
 
+//QUÉ SUCEDE SI LA RESPUESTA ES CORRECTA O INCORRECTA
+
 const evaluateAnswer = (respuesta, obj ) => {
     const parentP = obj.parentNode;
 
@@ -335,6 +341,8 @@ const evaluateAnswer = (respuesta, obj ) => {
     setTimeout (() => siguientePregunta(), 1000)
 }
 
+//INTERACCION CON EL BOTON DE SIGUIENTE PREGUNTA
+
 const siguientePregunta = _ => {
     if(trivia.length > 0){
         let preguntaAleatoria = Math.round(Math.random()*(trivia.length -1))    
@@ -346,6 +354,8 @@ const siguientePregunta = _ => {
         terminarTrivia()
     }
 }
+
+//CONDICIONES AL FINAL DEL JUEGO 
 
 const terminarTrivia = () => {
     let puntaje = Number(document.getElementById("cantidadCorrectas").innerText)

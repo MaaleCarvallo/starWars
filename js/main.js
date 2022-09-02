@@ -64,7 +64,7 @@ function mostrarMenu() {
     }
 }
 
-
+//CREAR PERSONAJE
 
 function crearPersonaje() {
     const nodoPrincipal=document.getElementById("mainContent")
@@ -110,6 +110,7 @@ function crearPersonaje() {
 
 }
 
+//LISTAR PERSONAJES
 
 function listarPersonajes(persojanesMostrar) {
     
@@ -119,6 +120,8 @@ function listarPersonajes(persojanesMostrar) {
     nodoPrincipal.setAttribute("style", "display:flex")
     persojanesMostrar.forEach(personaje => {
 
+        //CREACION DE BOTONES LUEGO DEL LISTADO DE PERSONAJES
+        
         const divPersonaje=document.createElement("div")
         divPersonaje.innerHTML=`<h3>${personaje.nombre}</h3>
                                 <div><img src=${personaje.img}></div>
@@ -134,7 +137,7 @@ function listarPersonajes(persojanesMostrar) {
 
         nodoPrincipal.appendChild(divPersonaje);
 
-        
+//JUEGO TRIVIA        
 
         let botonTrivia=document.getElementById(`trivia`)
         botonTrivia.addEventListener("click", ()=> {
@@ -145,13 +148,14 @@ function listarPersonajes(persojanesMostrar) {
                 botonTrivia.style.backroundColor='red';
             }
          })
-        
+
+//BOTON ACTUALIZAR PERSONAJE
 
         let botonActualizar=document.getElementById(`actualizar-${personaje.id}`)
         botonActualizar.addEventListener("click", ()=> {
             actualizarPersonaje(botonActualizar.getAttribute("value"))
         })
-    
+//BOTON BORRAR PERSONAJE
     
         let botonBorrar=document.getElementById(`borrar-${personaje.id}`)
         botonBorrar.addEventListener("click", ()=> {
@@ -160,13 +164,15 @@ function listarPersonajes(persojanesMostrar) {
     });
 }
 
+//BOTON BUSCAR PERSONAJE
+
 function buscarPersonaje() {
     let nombreABuscar = prompt("Ingrese el nombre que quiere buscar");
     catalogoPersonajes.buscarPersonaje(nombreABuscar);
 
 }
 
-
+//ACTUALIZAR PERSONAJE
 
 function actualizarPersonaje(idAActualizar) {
     let personajeAActualizar= catalogoPersonajes.buscarId(idAActualizar)
@@ -213,6 +219,8 @@ function actualizarPersonaje(idAActualizar) {
 
 }
 
+//BOTON BORRAR PERSONAJE
+
 function borrarPersonaje(idABorrar){
 
     catalogoPersonajes.borrarPersonaje(idABorrar)
@@ -225,6 +233,8 @@ function borrarPersonaje(idABorrar){
 
 }
 
+//ORDENAR PERSONAJES
+
 function ordenarPersonajes()
 {
     catalogoPersonajes.ordenarPersonajes();
@@ -232,6 +242,7 @@ function ordenarPersonajes()
     
 }
 
+//BUSCAR PERSONAJE
 
 const btnBuscar=document.getElementById("btnSearch");
 btnBuscar.addEventListener("click",()=>{
@@ -249,6 +260,8 @@ btnBuscar.addEventListener("click",()=>{
      }
 })
 
+//GUARDAR PERSONAJE UTILIZANDO JSON
+
 function guardarPersonajes(){
      
     localStorage.setItem("personajes", JSON.stringify(catalogoPersonajes.personajes))
@@ -265,6 +278,8 @@ function guardarPersonajes(){
         `
       })
 }
+
+//LISTADO DE NAVES UTILIZANDO LA API DE STAR WARS
 
 function listarNaves(){
     const nodoPrincipal=document.getElementById("mainContent")
