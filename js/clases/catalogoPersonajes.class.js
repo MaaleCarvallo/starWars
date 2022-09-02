@@ -77,8 +77,5 @@ class CatalogoPersonajes {
 ordenarPersonajes(){
     this.personajes.sort((personajeA,personajeB)=> (personajeA.nombre>personajeB.nombre) ? 1 : -1)
      
-}
-
-
-
+    }
 }

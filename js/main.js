@@ -19,7 +19,7 @@ else {
     mostrarMenu() 
 
 function mostrarMenu() {
-    const menu = ["Crear Personaje","Listar Personajes","Ordenar","Guardar Personajes", "Listar naves"]
+    const menu = ["Crear Personaje","Listar Personajes","Ordenar","Guardar Personajes", "Listar naves","Iniciar Trivia"]
 
     menu.forEach((datos)=>{
         mostrarDatos(datos);
@@ -57,6 +57,9 @@ function mostrarMenu() {
             case"Listar naves":
                 listarNaves()
                 break;
+            case"Iniciar Trivia":
+                window.location.href="trivia.html"
+                break;
         }
     }
 }
@@ -86,7 +89,7 @@ function crearPersonaje() {
         </select>
         
         <input id="imagen" type="text" placeholder="Imagen">
-        <button id="crearPersonaje" type="submit">Crear</button>
+        <button id="crearPersonaje" class="crear" type="submit">CREAR</button>
                                       `
     nodoPrincipal.innerHTML=""
     nodoPrincipal.appendChild(personajeAcrear)
@@ -123,14 +126,27 @@ function listarPersonajes(persojanesMostrar) {
                                 <div>${personaje.edad}</div>
                                 <div>${personaje.arma}</div>
                                 <div>${personaje.mision}</div>
-                                <div><button>Iniciar trivia</button></div>
+                                <div><button onclick="location.href = './trivia.html';" id="trivia">Iniciar trivia</button></div>
                                 <div><button id="actualizar-${personaje.id}" value="${personaje.id}">Actualizar</button></div>
                                 <div><button id="borrar-${personaje.id}" value="${personaje.id}">Borrar</button></div>
 
                                 `
 
         nodoPrincipal.appendChild(divPersonaje);
+
         
+
+        let botonTrivia=document.getElementById(`trivia`)
+        botonTrivia.addEventListener("click", ()=> {
+            if (botonTrivia.getAttribute('respuesta')==respuestaCorrecta){
+                botonTrivia.style.backroundColor='green';
+            }
+            else{
+                botonTrivia.style.backroundColor='red';
+            }
+         })
+        
+
         let botonActualizar=document.getElementById(`actualizar-${personaje.id}`)
         botonActualizar.addEventListener("click", ()=> {
             actualizarPersonaje(botonActualizar.getAttribute("value"))
@@ -205,7 +221,6 @@ function borrarPersonaje(idABorrar){
         icon: 'Borrado',
         title: 'Oops...',
         text: 'Se ha borrado a su personaje con éxito',
-        //footer: '<a href="">Why do I have this issue?</a>'
       })
 
 }
@@ -239,7 +254,7 @@ function guardarPersonajes(){
     localStorage.setItem("personajes", JSON.stringify(catalogoPersonajes.personajes))
     Swal.fire({
         title: 'Gracias por guardar a tu personaje.',
-        html:'<img class="ewok" src="./images/giphy.gif">',
+        html:'<img class="fondoGuardar" src="./images/giphy.gif">',
         color: '#716add',
         background: '#fff url(/images/trees.png)',
         backdrop: `
@@ -254,7 +269,7 @@ function guardarPersonajes(){
 function listarNaves(){
     const nodoPrincipal=document.getElementById("mainContent")
     nodoPrincipal.innerHTML="";
-    nodoPrincipal.setAttribute("style", "display:flex")
+    nodoPrincipal.setAttribute("style", "display:flex",)
     fetch ("https://swapi.dev/api/starships/")
         .then(response=> response.json())
         .then(starships=> {
@@ -273,3 +288,4 @@ function listarNaves(){
             })
         })
 }
+

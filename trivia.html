@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/icons8-darth-vader-32.png" type="image/x-icon">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script defer src="./js/trivia.js"></script>
+</head>
+<body>
+ 
+<section>
+    <div class="fondo">
+        <div class="pregunta"></div>
+        <button  class="siguientePregunta" id="siguientePregunta"> SIGUIENTE PREGUNTA </button>
+
+
+        <p class="respuestaCorrecta">Respuesas Correctas:  <span class="rightCounter" id="cantidadCorrectas"></span></p>
+        <p class="respuestaIncorrecta">Respuestas Incorrectas: <span class="wrongCounter"></span></p>
+
+        <span class="tiempo">15</span>
+
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
