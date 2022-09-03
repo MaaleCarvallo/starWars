@@ -314,6 +314,7 @@ const printHTMLQuestion = (i) => {
                 title: 'Oops...Perdiste',
                 text: 'Puedes volver a jugar!',   
               })
+              .then(()=>window.location.href = "index.html")
         
               clearInterval(intervaloTiempo);
         }
