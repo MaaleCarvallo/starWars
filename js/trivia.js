@@ -229,7 +229,7 @@ const trivia = [
     },
     {
         "pregunta": "¿Qué le responde Han Solo a la Princesa Leia cuando ella le dice que lo ama?",
-        "img": "./images/preguntahanleia.jpg",
+        "img": "./images/preguntahanleia.JPG",
         "respuestas": ["Lo sé", "Te amo más, princesa", "El lado oscuro me impide sentir lo mismo", "Sabes que es reciproco"],
     },
     {
@@ -399,6 +399,7 @@ const terminarTrivia = () => {
         imageWidth: "auto",
         imageHeight: 200,
     })
+    .then(()=>window.location.href = "index.html")
 }
 
 let botonSiguiente = document.getElementById("siguientePregunta")
