@@ -22,6 +22,8 @@ p{
     text-align: center;
 }
 
+/*ESTILOS BOTONES*/
+
 button{
     padding: 10px;
     font-family: STARWARS;
@@ -53,6 +55,8 @@ div{
     padding: 5px;
 }
 
+/*IMAGENES DEL LISTADO DE PERSONAJES*/
+
 img{
     width: 150px;
     height: 100px;
@@ -60,7 +64,10 @@ img{
     
 }
 
+/*BUSCAR*/
+
 .buscar{
+    width: 30%;
     height: 25px;
     margin-left: 70px; 
     font-family: inherit;
@@ -72,6 +79,8 @@ img{
     font-size: 18px;
     border-radius: 7px;
 }
+
+/*GUARDAR PERSONAJE*/
 
 .fondoGuardar{
     width: 70%;
@@ -180,3 +189,14 @@ section{
     border: 1px solid lightslategray;
 }
 
+@media (max-width:800px){
+    body{
+        background-image: url(../images/fondo\ estrellas.jpeg);
+    }
+
+    .fondo{
+        width: 80%;
+    }
+
+
+}
